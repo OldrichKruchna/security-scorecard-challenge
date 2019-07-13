@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from "react-redux";
+
 import './App.css';
 
-function App() {
+import questions from './conf.js';
+
+import SentencePreview from './SentencePreview.js';
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SentencePreview></SentencePreview>
+      <div>{ questions[props.state.currentQuestion].question }</div>
+
+      <button onClick={props.prev}>
+        Pre
+      </button>
+
+      <button onClick={props.next}>
+        Next
+      </button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    state
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    prev: () => dispatch({ type: 'DECREMENT' }),
+    next: () => dispatch({ type: 'INCREMENT' }),
+  }
+}
+
+// https://medium.com/@atomarranger/redux-mapstatetoprops-and-mapdispatchtoprops-shorthand-67d6cd78f132
+export default connect(mapStateToProps, mapDispatchToProps)(App);
