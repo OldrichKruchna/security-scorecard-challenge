@@ -16,7 +16,9 @@ class SentencePreview extends React.Component {
 
   renderWords(props) {
     return props.state.words.map((word, index) => {
-      return <span onClick={this.selectWord.bind(this, index)} className={props.state.currentQuestion === index ? 'active' : ''} key={index}>{word}</span>;
+      return <div className="nes-badge" key={index}>
+        <span onClick={this.selectWord.bind(this, index)} className={`${props.state.currentQuestion === index ? 'active' : ''} is-warning`} key={index}>{word}</span>
+      </div>;
     })
   }
 
