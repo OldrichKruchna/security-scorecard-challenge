@@ -1,4 +1,4 @@
-# SecurityScoreboard interview challenge
+# SecurityScorecard interview challenge
 
 Repo with implemented challenge for interview purposes.
 
