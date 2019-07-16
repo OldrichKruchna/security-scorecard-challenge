@@ -7,8 +7,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
+import questions from './questions.conf';
+
 // https://redux.js.org/api/createstore#createstorereducer-preloadedstate-enhancer
-const store = createStore(reducer, { words: ['tuc', 'prd'], currentQuestion: 1 });
+const store = createStore(reducer, { words: questions.map(() => ''), currentQuestion: 0 });
 
 render(
   <Provider store={store}>

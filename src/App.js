@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import './App.css';
 
-import questions from './conf.js';
+import questions from './questions.conf.js';
 
 import SentencePreview from './SentencePreview.js';
 
@@ -19,7 +19,7 @@ function App(props) {
         Pre
       </button>
 
-      <button onClick={props.next} disabled={props.state.currentQuestion >= questions.length}>
+      <button onClick={props.next} disabled={props.state.currentQuestion >= questions.length - 1}>
         Next
       </button>
     </div>
