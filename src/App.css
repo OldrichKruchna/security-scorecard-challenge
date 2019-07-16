@@ -32,3 +32,14 @@
   margin-bottom: 8px;
   min-width: 256px;
 }
+
+.github {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author {
+  text-align: center;
+}
