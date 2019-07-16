@@ -13,11 +13,13 @@ function App(props) {
       <SentencePreview></SentencePreview>
       <div>{ questions[props.state.currentQuestion].question }</div>
 
-      <button onClick={props.prev}>
+      <input type="text" value={props.state.words[props.state.currentQuestion]} onChange={(event) => props.handleChange(event, props.state.currentQuestion)} />
+
+      <button onClick={props.prev} disabled={props.state.currentQuestion <= 0}>
         Pre
       </button>
 
-      <button onClick={props.next}>
+      <button onClick={props.next} disabled={props.state.currentQuestion >= questions.length}>
         Next
       </button>
     </div>
@@ -34,6 +36,7 @@ function mapDispatchToProps(dispatch) {
   return {
     prev: () => dispatch({ type: 'DECREMENT' }),
     next: () => dispatch({ type: 'INCREMENT' }),
+    handleChange: (event, currentQuestion) => dispatch({ type: 'UPDATE_CURRENT_WORD', value: event.target.value, currentQuestion })
   }
 }
 
