@@ -15,11 +15,13 @@ class SentencePreview extends React.Component {
   }
 
   renderWords(props) {
-    return props.state.words.map((word, index) => {
-      return <div className="nes-badge" key={index}>
-        <span onClick={this.selectWord.bind(this, index)} className={`${props.state.currentQuestion === index ? 'active' : ''} is-warning`} key={index}>{word}</span>
-      </div>;
-    })
+    return <section className="message -right">
+      <div className="nes-balloon from-right">
+        <p>{props.state.words.map((word, index) => {
+          return <span onClick={this.selectWord.bind(this, index)} className={`${props.state.currentQuestion === index ? 'is-error' : ''} nes-text`} key={index}>{word || '...'} </span>
+        })}</p>
+      </div>
+    </section>;
   }
 
   render() {
