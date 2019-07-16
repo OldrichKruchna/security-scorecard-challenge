@@ -11,7 +11,7 @@ import Question from './Question.js';
 function App(props) {
   return (
     <div className="nes-container with-title is-rounded container">
-      <p className="title">SecurityScoreboard's React And Redux Challenge</p>
+      <p className="title">Security<wbr/>Scoreboard's Challenge</p>
 
       <div>
         <Question question={questions[props.state.currentQuestion].question}></Question>
@@ -29,13 +29,15 @@ function App(props) {
           <input type="text" id="question" value={props.state.words[props.state.currentQuestion]} onChange={(event) => props.handleChange(event, props.state.currentQuestion)} className="nes-input" autoFocus/>
         </div>
 
-        <button onClick={props.prev} disabled={props.state.currentQuestion <= 0} className={`${props.state.currentQuestion <= 0 ? 'is-disabled' : ''} nes-btn btn`}>
-          Previous
-        </button>
+        <div className="buttons">
+          <button onClick={props.prev} disabled={props.state.currentQuestion <= 0} className={`${props.state.currentQuestion <= 0 ? 'is-disabled' : ''} nes-btn btn`}>
+            Previous
+          </button>
 
-        <button onClick={props.next} disabled={props.state.currentQuestion >= questions.length - 1} className={`${props.state.currentQuestion >= questions.length - 1 ? 'is-disabled' : ''} nes-btn is-primary btn`}>
-          Next
-        </button>
+          <button onClick={props.next} disabled={props.state.currentQuestion >= questions.length - 1} className={`${props.state.currentQuestion >= questions.length - 1 ? 'is-disabled' : ''} nes-btn is-primary btn`}>
+            Next
+          </button>
+        </div> 
       </div>
     </div>
   );

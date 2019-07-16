@@ -5,18 +5,23 @@
 
 .controls {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
 }
 
 .btn {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 4px 8px;
   height: 48px;
+}
+
+.buttons {
+  margin-bottom: 8px;
 }
 
 .input-wrapper {
   margin-left: 8px;
   margin-right: 8px;
+  margin-bottom: 8px;
+  min-width: 256px;
 }
