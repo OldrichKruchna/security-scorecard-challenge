@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
 
+import './index.css';
+import reducer from './reducers';
 import questions from './questions.conf';
+import App from './components/App';
 
 // https://redux.js.org/api/createstore#createstorereducer-preloadedstate-enhancer
 const store = createStore(reducer, { words: questions.map(() => ''), currentQuestion: 0 });

@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 
 import './App.css';
 
-import questions from './questions.conf.js';
+import questions from '../questions.conf.js';
 
 import SentencePreview from './SentencePreview.js';
-import Question from './Question.js';
+import CurrentQuestion from './CurrentQuestion.js';
 
 function App(props) {
   return (
@@ -27,7 +27,7 @@ function App(props) {
           <p className="title">The Challenge</p>
 
           <div>
-            <Question question={questions[props.state.currentQuestion].question}></Question>
+            <CurrentQuestion></CurrentQuestion>
             <i className="nes-mario"></i>
           </div>
 
